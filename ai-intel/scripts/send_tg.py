@@ -318,6 +318,8 @@ def main():
                         help="Print message to stdout without sending")
     parser.add_argument("--file", metavar="PATH", type=str,
                         help="Send a local file (PDF, etc.) as a Telegram document")
+    parser.add_argument("--caption", metavar="TEXT", type=str, default="",
+                        help="Caption for the file (use with --file)")
     args = parser.parse_args()
 
     # 1. Bot config
@@ -331,7 +333,7 @@ def main():
     if args.file:
         file_path = os.path.expanduser(args.file)
         print(f"\nSending file: {file_path}")
-        ok = send_document(bot_token, chat_id, file_path)
+        ok = send_document(bot_token, chat_id, file_path, caption=args.caption)
         if not ok:
             sys.exit(1)
         print("[OK] File sent to Telegram.")

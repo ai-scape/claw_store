@@ -19,9 +19,9 @@ _warnings.filterwarnings("ignore")
 import markdown
 from weasyprint import HTML, CSS
 
-md_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_search_summary_2025-03-23.md"
+md_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_search_summary_2026-03-23.md"
 css_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_report_style.css"
-output_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_search_summary_2025-03-23.pdf"
+output_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_search_summary_2026-03-23.pdf"
 
 with open(md_path, "r", encoding="utf-8") as f:
     md_content = f.read()
