@@ -78,6 +78,46 @@ def send_message(bot_token: str, chat_id: str, text: str) -> bool:
         return False
 
 
+def send_document(bot_token: str, chat_id: str, file_path: str,
+                  caption: str = "", mime_type: str = "application/pdf") -> bool:
+    """Send a file as a Telegram document (PDF, etc.) using curl with multipart/form-data."""
+    import subprocess
+
+    if not os.path.exists(file_path):
+        print(f"  [ERROR] File not found: {file_path}", file=sys.stderr)
+        return False
+
+    url = f"https://api.telegram.org/bot{bot_token}/sendDocument"
+
+    # Build curl command with -F for multipart/form-data
+    cmd = [
+        "curl", "-s", "-X", "POST", url,
+        "-F", f"chat_id={chat_id}",
+        "-F", f"document=@{file_path}",
+        "-F", f"caption={caption}",
+        "-F", 'parse_mode=HTML'
+    ]
+
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+        if result.returncode == 0 and result.stdout.strip():
+            resp = json.loads(result.stdout)
+            if resp.get("ok"):
+                msg_id = resp["result"].get("message_id", "?")
+                print(f"  [OK] Document sent (message_id={msg_id})")
+                return True
+            err = resp.get("description", resp)
+            print(f"  [ERROR] Telegram error: {err}", file=sys.stderr)
+            return False
+        # Non-json response (might be an error in curl)
+        err = result.stdout.strip() or result.stderr.strip()
+        print(f"  [ERROR] curl failed (code={result.returncode}): {err[:300]}", file=sys.stderr)
+        return False
+    except Exception as e:
+        print(f"  [ERROR] Request failed: {e}", file=sys.stderr)
+        return False
+
+
 def split_messages(text: str, chunk_size: int = MAX_MSG_SIZE) -> list[str]:
     """Split long text into chunks that fit Telegram's limit."""
     chunks = []
@@ -276,6 +316,8 @@ def main():
                         help="Fetch fresh description via OpenClaw browser")
     parser.add_argument("--test", action="store_true",
                         help="Print message to stdout without sending")
+    parser.add_argument("--file", metavar="PATH", type=str,
+                        help="Send a local file (PDF, etc.) as a Telegram document")
     args = parser.parse_args()
 
     # 1. Bot config
@@ -285,7 +327,17 @@ def main():
         sys.exit(1)
     print(f"[OK] Bot configured (chat_id={chat_id})")
 
-    # 2. Gather video info
+    # 2. Send a file if --file is given
+    if args.file:
+        file_path = os.path.expanduser(args.file)
+        print(f"\nSending file: {file_path}")
+        ok = send_document(bot_token, chat_id, file_path)
+        if not ok:
+            sys.exit(1)
+        print("[OK] File sent to Telegram.")
+        return
+
+    # 3. Gather video info
     if args.browser:
         print("Fetching video info via OpenClaw browser...")
         info = get_video_info_via_browser()
