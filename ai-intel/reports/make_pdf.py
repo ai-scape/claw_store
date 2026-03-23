@@ -1,6 +1,13 @@
+import sys
+import os
+
+# Add Miniconda paths at the end so script dir stays first
+for p in [r"C:\Users\Welcome\Miniconda3\Lib", r"C:\Users\Welcome\Miniconda3\Lib\site-packages"]:
+    if p not in sys.path:
+        sys.path.append(p)
+
 import markdown
 from weasyprint import HTML, CSS
-import re
 
 md_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_search_summary_2025-03-23.md"
 css_path = "C:/Users/Welcome/.openclaw/workspace/ai-intel/reports/ai_report_style.css"
