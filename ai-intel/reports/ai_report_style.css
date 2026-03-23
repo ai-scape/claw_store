@@ -1,0 +1,247 @@
+/* ===========================
+   CSS styles for AI Report PDF
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+}
+
+/* ---- HEADER ---- */
+.report-header {
+    background: linear-gradient(135deg, #0a0a2e 0%, #1a1a5e 50%, #0a2e4e 100%);
+    color: white;
+    padding: 28px 36px 20px 36px;
+    page-break-after: avoid;
+}
+
+.report-header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.report-header h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.report-header .header-meta {
+    text-align: right;
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+}
+
+.report-header .header-source {
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.55);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 10px;
+    margin-top: 4px;
+}
+
+/* ---- SECTION HEADERS ---- */
+.section-header {
+    background: linear-gradient(90deg, #0a0a2e, #1a3a8a);
+    color: white;
+    padding: 8px 14px;
+    margin: 20px 0 0 0;
+    page-break-before: avoid;
+    page-break-after: avoid;
+}
+
+.section-header h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.section-number {
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 8pt;
+    margin-right: 8px;
+}
+
+/* ---- SUBSECTION HEADERS ---- */
+.subsection-header {
+    border-left: 4px solid #1a3a8a;
+    background: #f0f4ff;
+    padding: 7px 12px;
+    margin: 14px 0 6px 0;
+    page-break-after: avoid;
+}
+
+.subsection-header h3 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #0a0a2e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subsection-header .badge {
+    background: #1a3a8a;
+    color: white;
+    font-size: 6.5pt;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.subsection-header .source-link {
+    font-size: 6.5pt;
+    color: #1a3a8a;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.subsection-header .source-link:hover {
+    text-decoration: underline;
+}
+
+/* ---- CONTENT BLOCKS ---- */
+.content-block {
+    padding: 0 14px 8px 14px;
+    page-break-inside: avoid;
+}
+
+.key-takeaway {
+    background: #e8f4e8;
+    border-left: 4px solid #2e7d32;
+    border-radius: 0 4px 4px 0;
+    padding: 7px 11px;
+    margin: 6px 14px 10px 14px;
+    font-size: 8pt;
+    color: #1b3d1b;
+}
+
+.key-takeaway strong {
+    color: #2e7d32;
+}
+
+/* ---- STATS TABLE ---- */
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 14px;
+    font-size: 8.5pt;
+}
+
+.stats-table th {
+    background: #0a0a2e;
+    color: white;
+    padding: 7px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.stats-table td {
+    padding: 6px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.stats-table tr:nth-child(even) td {
+    background: #f5f7ff;
+}
+
+.stats-table tr:last-child td {
+    font-weight: 700;
+    background: #eef0ff;
+    color: #0a0a2e;
+}
+
+/* ---- FAILURE TABLE ---- */
+.failure-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 14px;
+    font-size: 8pt;
+}
+
+.failure-table th {
+    background: #c62828;
+    color: white;
+    padding: 5px 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.failure-table td {
+    padding: 5px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #555;
+}
+
+.failure-table tr:nth-child(even) td {
+    background: #fff5f5;
+}
+
+/* ---- FOOTER ---- */
+.report-footer {
+    background: #0a0a2e;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 12px;
+    font-size: 7pt;
+    margin-top: 20px;
+}
+
+/* ---- PAGE BREAKS ---- */
+.page-break {
+    page-break-before: always;
+}
+
+/* ---- UTILITIES ---- */
+p {
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+ul {
+    padding-left: 16px;
+    margin-bottom: 5px;
+}
+
+li {
+    margin-bottom: 2px;
+}
+
+strong {
+    color: #0a0a2e;
+}
+
+em {
+    color: #444;
+}
+
+code {
+    background: #f3f4f6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 8pt;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0;
+}

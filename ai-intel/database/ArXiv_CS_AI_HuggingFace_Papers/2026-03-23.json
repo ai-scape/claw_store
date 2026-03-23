@@ -1,0 +1,37 @@
+﻿[
+    {
+        "value":  [
+                      {
+                          "title":  "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering",
+                          "url":  "http://arxiv.org/abs/2603.20193v1",
+                          "description":  "Existing tampering detection benchmarks largely rely on object masks, which severely misalign with the true edit signal: many pixels inside a mask are untouched or only trivially modified, while subtle yet consequential edits outside the mask are treated as natural. We reformulate VLM image tampering from coarse region labels to a pixel-grounded, meaning and language-aware task. First, we introduce a taxonomy spanning edit primitives (replace/remove/splice/inpaint/attribute/colorization, etc.) and their semantic class of tampered object, linking low-level changes to high-level understanding. Second, we release a new benchmark with per-pixel tamper maps and paired category supervision to evaluate detection and classification within a unified protocol. Third, we propose a training framework and evaluation metrics that quantify pixel-level correctness with localization to assess confidence or prediction on true edit intensity, and further measure tamper meaning understanding via semantics-aware classification and natural language descriptions for the predicted regions. We also re-evaluate the existing strong segmentation/localization baselines on recent strong tamper detectors and reveal substantial over- and under-scoring using mask-only metrics, and expose failure modes on micro-edits and off-mask changes. Our framework advances the field from masks to pixels, meanings and language descriptions, establishing a rigorous standard for tamper localization, semantic classification and description. Code and benchmark data are available at https://github.com/VILA-Lab/PIXAR.",
+                          "authors":  "",
+                          "published":  "2026-03-20T17:59:54Z",
+                          "pdf_url":  "https://arxiv.org/pdf/2603.20193v1",
+                          "tag":  "ArXiv CS.AI HuggingFace Papers",
+                          "_added":  "2026-03-23T09:22:30"
+                      },
+                      {
+                          "title":  "LumosX: Relate Any Identities with Their Attributes for Personalized Video Generation",
+                          "url":  "http://arxiv.org/abs/2603.20192v1",
+                          "description":  "Recent advances in diffusion models have significantly improved text-to-video generation, enabling personalized content creation with fine-grained control over both foreground and background elements. However, precise face-attribute alignment across subjects remains challenging, as existing methods lack explicit mechanisms to ensure intra-group consistency. Addressing this gap requires both explicit modeling strategies and face-attribute-aware data resources. We therefore propose LumosX, a framework that advances both data and model design. On the data side, a tailored collection pipeline orchestrates captions and visual cues from independent videos, while multimodal large language models (MLLMs) infer and assign subject-specific dependencies. These extracted relational priors impose a finer-grained structure that amplifies the expressive control of personalized video generation and enables the construction of a comprehensive benchmark. On the modeling side, Relational Self-Attention and Relational Cross-Attention intertwine position-aware embeddings with refined attention dynamics to inscribe explicit subject-attribute dependencies, enforcing disciplined intra-group cohesion and amplifying the separation between distinct subject clusters. Comprehensive evaluations on our benchmark demonstrate that LumosX achieves state-of-the-art performance in fine-grained, identity-consistent, and semantically aligned personalized multi-subject video generation. Code and models are available at https://jiazheng-xing.github.io/lumosx-home/.",
+                          "authors":  "",
+                          "published":  "2026-03-20T17:59:46Z",
+                          "pdf_url":  "https://arxiv.org/pdf/2603.20192v1",
+                          "tag":  "ArXiv CS.AI HuggingFace Papers",
+                          "_added":  "2026-03-23T09:22:30"
+                      }
+                  ],
+        "Count":  2
+    },
+    {
+        "title":  "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking",
+        "url":  "http://arxiv.org/abs/2603.20185v1",
+        "description":  "Video agentic models have advanced challenging video-language tasks. However, most agentic approaches still heavily rely on greedy parsing over densely sampled video frames, resulting in high computational cost. We present VideoSeek, a long-horizon video agent that leverages video logic flow to actively seek answer-critical evidence instead of exhaustively parsing the full video. This insight allows the model to use far fewer frames while maintaining, or even improving, its video understanding capability. VideoSeek operates in a think-act-observe loop with a well-designed toolkit for collecting multi-granular video observations. This design enables query-aware exploration over accumulated observations and supports practical video understanding and reasoning. Experiments on four challenging video understanding and reasoning benchmarks demonstrate that VideoSeek achieves strong accuracy while using far fewer frames than prior video agents and standalone LMMs. Notably, VideoSeek achieves a 10.2 absolute points improvement on LVBench over its base model, GPT-5, while using 93% fewer frames. Further analysis highlights the significance of leveraging video logic flow, strong reasoning capability, and the complementary roles of toolkit design.",
+        "authors":  "",
+        "published":  "2026-03-20T17:58:47Z",
+        "pdf_url":  "https://arxiv.org/pdf/2603.20185v1",
+        "tag":  "ArXiv CS.AI HuggingFace Papers",
+        "_added":  "2026-03-23T09:22:30"
+    }
+]

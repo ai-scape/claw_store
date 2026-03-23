@@ -1,0 +1,24 @@
+# AI Intelligence System — Cron Setup Documentation
+# All times in IST (UTC-5:30)
+#
+# DAILY jobs (03:30 UTC = 09:00 IST):
+#   - companies: Mon=Nvidia/OpenAI/DeepMind, Tue=Runway/Luma/Sora, Wed=Kling/Minimax/Vidu,
+#                Thu=Qwen/Wan/ByteDance, Fri=Z-AI/Moonshot/Mistral, Sat=Higgsfield/Freepik/OpenArt/InVideo, Sun=(off)
+#   - papers: Mon/Wed/Fri/Sat ArXiv cs.AI/cs.CV/cs.CL/cs.LG
+#
+# FILMMAKERS (04:30 UTC = 10:00 IST): Tue, Thu
+#
+# AGGREGATORS (04:30 UTC = 10:00 IST): Saturday only
+#
+# WEEKLY VIDEO (12:30 UTC = 18:00 IST): Sunday only
+# WEEKLY REPORT (13:00 UTC = 18:30 IST): Sunday only (after video job)
+#
+# Cron reference (UTC):
+#   DAILY       → 0 30 3 * * *
+#   FILMMAKERS  → 0 30 4 * * 2,4
+#   AGGREGATORS → 0 30 4 * * 6
+#   VIDEO       → 0 30 12 * * 0
+#   REPORT      → 0 0 13 * * 0
+
+# NOTE: Gateway cron uses UTC. All jobs run in isolated sessions.
+# The dispatcher.ps1 script checks day-of-week internally.
